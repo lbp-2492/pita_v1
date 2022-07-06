@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\pita",
+    "\\pita\\screens"
   ],
-  "SelectedNode": "\\C:\\Users\\leela\\Source\\Repos\\pita_v1",
+  "SelectedNode": "\\pita\\screens",
   "PreviewInSolutionExplorer": false
 }
