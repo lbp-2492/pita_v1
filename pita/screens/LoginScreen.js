@@ -18,8 +18,11 @@ export default function Login({ navigation }) {
     }
 
     return (
-        <View>
-            <Text>Login Screen</Text>
+        <View style={styles.container}>
+            <View style={styles.header_container}>
+                <Text style={styles.title}>Login</Text>
+                <Text style={styles.message}>Please sign in to continue</Text>
+            </View>
             <Button title='login' onPress={loginHandler} />
             <Button title='forgotpwd' onPress={pwdHandler} />
             <Button title='signup' onPress={signupHandler} />
@@ -27,3 +30,19 @@ export default function Login({ navigation }) {
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    header_container: {
+        marginTop: 150,
+        padding: 30,
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: "bold",
+    },
+    message: {
+
+    }
+});

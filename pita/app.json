@@ -4,11 +4,11 @@
     "slug": "pita",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/heartsplash3.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/heartsplash3.png",
+      "fadeDuration": 300,
       "backgroundColor": "#ffffff"
     },
     "updates": {

@@ -11,7 +11,10 @@ import LogSymptoms from '../screens/LogSymptoms';
 
 const screens = {
     Login: {
-        screen: Login
+        screen: Login,
+        navigationOptions: {
+            headerShown: false
+        }
     },
     Home: {
         screen: Home
