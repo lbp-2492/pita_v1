@@ -26,7 +26,10 @@ const screens = {
         }
     }, 
     Forgot: {
-        screen: Forgot
+        screen: Forgot,
+        navigationOptions: {
+            headerShown: false
+        }
     },
     Calendar: {
         screen: Calendar
