@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Button, Text, Pressable, TextInput } from 'react-native';
 
-
 export default function Login({ navigation }) {
 
     const loginHandler = () => {
@@ -39,7 +38,7 @@ export default function Login({ navigation }) {
                 </View>
                 <View style={styles.signup}>
                     <Text>don't have an account? </Text>
-                    <Pressable style={styles.fp_button} onPress={loginHandler}>
+                    <Pressable style={styles.fp_button} onPress={signupHandler}>
                         <Text style={styles.clickhere}>sign up</Text>
                     </Pressable>
                 </View>
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         alignItems: 'center',
         justifyContent: 'center',
-        left: 157,
+        left: 159,
         width: 150,
         padding: 2,
         margin: 10,

@@ -20,7 +20,10 @@ const screens = {
         screen: Home
     },
     Signup: {
-        screen: Signup
+        screen: Signup, 
+        navigationOptions: {
+            headerShown: false
+        }
     }, 
     Forgot: {
         screen: Forgot
