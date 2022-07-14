@@ -7,6 +7,14 @@ export default function Signup({ navigation }) {
         navigation.navigate('Login'); 
     }
 
+    const pwdHandler = () => {
+        navigation.navigate('Forgot');
+    }
+
+    const successHandler = () => {
+        navigation.navigate('Success');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header_container}>

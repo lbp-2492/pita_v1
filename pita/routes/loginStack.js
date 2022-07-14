@@ -8,6 +8,8 @@ import Calendar from '../screens/Calendar';
 import VisitHistory from '../screens/History';
 import Labs from '../screens/Labs';
 import LogSymptoms from '../screens/LogSymptoms';
+import Message from '../screens/reactions/signupUn';
+import Success from '../screens/reactions/messageSent';
 
 const screens = {
     Login: {
@@ -17,7 +19,10 @@ const screens = {
         }
     },
     Home: {
-        screen: Home
+        screen: Home,
+        navigationOptions: {
+            headerShown: false
+        }
     },
     Signup: {
         screen: Signup, 
@@ -43,8 +48,14 @@ const screens = {
     LogSymptoms: {
         screen: LogSymptoms
     },
+    Message: {
+        screen: Message 
+    },
+    Success: {
+        screen: Success
+    },
 };
 
-const HomeStack = createStackNavigator(screens); 
+const LoginStack = createStackNavigator(screens); 
 
-export default createAppContainer(HomeStack); 
+export default createAppContainer(LoginStack); 

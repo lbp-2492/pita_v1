@@ -7,6 +7,10 @@ export default function ForgotPassword({ navigation }) {
         navigation.navigate('Login'); 
     }
 
+    const successHandler = () => {
+        navigation.navigate('Success')
+    }
+
     return (
         <View style={styles.container}> 
             <View style={styles.header_container}>
@@ -19,7 +23,7 @@ export default function ForgotPassword({ navigation }) {
                 <TextInput style={styles.input} placeholder="your phone number" />
             </View>
             <View style={styles.submitlogin}>
-                <Pressable style={styles.login_button} onPress={loginHandler}>
+                <Pressable style={styles.login_button} onPress={successHandler}>
                     <Text style={styles.login}>send reset link</Text>
                 </Pressable>
             </View>
