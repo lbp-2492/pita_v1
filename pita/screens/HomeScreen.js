@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Button, Text, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, View, Button, Text, TextInput, ScrollView, Pressable } from 'react-native';
 import { Feather, Entypo } from "@expo/vector-icons";
 
 
@@ -24,81 +24,106 @@ export default function Home({ clicked, searchPhrase, setSearchPhrase, setClicke
 
     return (
         <View style={styles.container}>
-            <View style={styles.greeting_cont}>
-                <Text style={styles.hi}>hi madhu,</Text>
-                <Text style={styles.message}>what can we do for you?</Text>
-            </View>
-            <View style={styles.search_bar}>
-                <View
-                    style={
-                        clicked
-                            ? styles.searchBar__clicked
-                            : styles.searchBar__unclicked
-                    }
-                >
-                    <Feather
-                        name="search"
-                        size={20}
-                        color="black"
-                        style={{ marginLeft : 1 }}
-                    />
+            <ScrollView>
+                <View style={styles.greeting_cont}>
+                    <Text style={styles.hi}>hi madhu,</Text>
+                    <Text style={styles.message}>what can we do for you?</Text>
+                </View>
+                <View style={styles.search_bar}>
+                    <View
+                        style={
+                            clicked
+                                ? styles.searchBar__clicked
+                                : styles.searchBar__unclicked
+                        }
+                    >
+                        <Feather
+                            name="search"
+                            size={20}
+                            color="black"
+                            style={{ marginLeft : 1 }}
+                        />
 
-                    <TextInput 
-                        style={styles.input}
-                        placeholder="search"
-                        value={searchPhrase}
-                        onChangeText={setSearchPhrase}
-                        onFocuse={() => {
-                            setClicked(true);
-                        }}
-                    />
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="search"
+                            value={searchPhrase}
+                            onChangeText={setSearchPhrase}
+                            onFocuse={() => {
+                                setClicked(true);
+                            }}
+                        />
+                        {clicked && (
+                            <Entypo name="cross" size={20} color="black" style={{ padding: 1 }} onPress={() => {
+                                setSearchPhrase("")
+                            }}/>
+                        )}
+                    </View>
                     {clicked && (
-                        <Entypo name="cross" size={20} color="black" style={{ padding: 1 }} onPress={() => {
-                            setSearchPhrase("")
-                        }}/>
+                        <View>
+                            <Button
+                                title="Cancel"
+                                onPress={() => {
+                                    Keyboard.dismiss();
+                                    setClicked(false);
+                                }}
+                            ></Button>
+                        </View>
                     )}
                 </View>
-                {clicked && (
-                    <View>
-                        <Button
-                            title="Cancel"
-                            onPress={() => {
-                                Keyboard.dismiss();
-                                setClicked(false);
-                            }}
-                        ></Button>
-                    </View>
-                )}
-            </View>
-            <ScrollView>
                 <View style={styles.conts}>
                     <View style={styles.headers}>
-                        <Text style={styles.h_title}>symptoms</Text>
-                        <Text style={styles.h_view}>view all</Text>
+                        <Text style={styles.h_title}>container 1</Text>
+                        <View style={styles.viewc}>
+                            <Pressable style={styles.viewb} onPress={symptomsHandler}>
+                                <Text>view all</Text>
+                            </Pressable>
+                        </View>
                     </View>
                     <View style={styles.h_carn}>
-                        <Text>symp</Text>
+                        <Text>container 1</Text>
                     </View>
                 </View>
                 <View style={styles.conts}>
                     <View style={styles.headers}>
-                        <Text style={styles.h_title}>symptoms</Text>
-                        <Text style={styles.h_view}>view all</Text>
+                        <Text style={styles.h_title}>container 2</Text>
+                        <View style={styles.viewc}>
+                            <Pressable style={styles.viewb} onPress={calHandler}>
+                                <Text>view all</Text>
+                            </Pressable>
+                        </View>
                     </View>
                     <View style={styles.h_carn}>
-                        <Text>symp</Text>
+                        <Text>container 2</Text>
                     </View>
                 </View>
                 <View style={styles.conts}>
                     <View style={styles.headers}>
-                        <Text style={styles.h_title}>symptoms</Text>
-                        <Text style={styles.h_view}>view all</Text>
+                        <Text style={styles.h_title}>container 3</Text>
+                        <View style={styles.viewc}>
+                            <Pressable style={styles.viewb} onPress={labsHandler}>
+                                <Text>view all</Text>
+                            </Pressable>
+                        </View>
                     </View>
                     <View style={styles.h_carn}>
-                        <Text>symp</Text>
+                        <Text>container 3</Text>
                     </View>
                 </View>
-            </ScrollView>
+                <View style={styles.conts}>
+                    <View style={styles.headers}>
+                        <Text style={styles.h_title}>container 4</Text>
+                        <View style={styles.viewc}>
+                            <Pressable style={styles.viewb} onPress={histHandler}>
+                                <Text>view all</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                    <View style={styles.h_carn}>
+                        <Text>container 4</Text>
+                    </View>
+                </View>
+            </ScrollView>    
         </View>
     );
 };
@@ -152,12 +177,11 @@ const styles = StyleSheet.create({
     },
     conts: {
         alignItems: "center",
-        backgroundColor: "pink",
         width: 411.5,
         height: 250,
+        marginTop: 5,
     },
     headers: {
-        backgroundColor: "blue",
         width: "100%",
         height: "20%",
         flexDirection: "row",
@@ -169,14 +193,22 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         alignItems: "center",
     },
-    h_view: {
-        fontSize: 15,
-        marginTop: 14,
-        marginLeft: 210,
-    },
     h_carn: {
         width: "80%",
         height: "80%",
-        backgroundColor: "yellow",
-    }
+    },
+    viewc: {
+        flex: 1,
+        top: 13,
+        right: 30,
+    },
+    viewb: {
+        top: -10,
+        borderRadius: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+        left: 195,
+        width: 100,
+        height: 40,
+    },
 })
